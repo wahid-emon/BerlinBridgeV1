@@ -72,7 +72,7 @@ function App() {
                     Meet in your neighborhood's parks and cafes.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" onClick={() => setView('onboarding')}>
+                    <Button size="lg" onClick={() => setView('onboarding')} className="font-bold">
                         Find a Language Buddy
                     </Button>
                     <Button size="lg" variant="outline" onClick={() => {
