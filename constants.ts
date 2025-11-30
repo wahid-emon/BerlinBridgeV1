@@ -73,5 +73,49 @@ export const MOCK_USERS: UserProfile[] = [
     interests: ['Cooking', 'Literature', 'Cinema'],
     languages: ['Italian (Native)', 'English (Fluent)', 'German (A1)'],
     avatarUrl: 'https://picsum.photos/seed/elena/200/200'
+  },
+  {
+    id: '7',
+    name: 'Jürgen Meyer',
+    age: 77,
+    type: 'local',
+    district: District.Mitte,
+    bio: 'I have lived in Mitte for 50 years. I can show you the hidden corners near Hackescher Markt.',
+    interests: ['History', 'Walking', 'Politics'],
+    languages: ['German (Native)'],
+    avatarUrl: 'https://picsum.photos/seed/jurgen/200/200'
+  },
+  {
+    id: '8',
+    name: 'Anna Schmidt',
+    age: 23,
+    type: 'learner',
+    district: District.Mitte,
+    bio: 'Studying Architecture. I love the old buildings here but I am too shy to speak German in shops.',
+    interests: ['Art', 'History', 'Photography'],
+    languages: ['English (Native)', 'German (A2)'],
+    avatarUrl: 'https://picsum.photos/seed/anna/200/200'
+  },
+  {
+    id: '9',
+    name: 'Thomas Müller',
+    age: 65,
+    type: 'local',
+    district: District.Friedrichshain,
+    bio: 'Musician and art lover. Friedrichshain has changed so much, let us talk about it.',
+    interests: ['Music', 'Art', 'Cooking'],
+    languages: ['German (Native)', 'English (Basic)'],
+    avatarUrl: 'https://picsum.photos/seed/thomas/200/200'
+  },
+  {
+    id: '10',
+    name: 'Liam O\'Connor',
+    age: 28,
+    type: 'learner',
+    district: District.Friedrichshain,
+    bio: 'Tech worker from Dublin. I want to learn authentic "Berlinerisch" slang.',
+    interests: ['Tech', 'Music', 'Soccer'],
+    languages: ['English (Native)', 'German (A2)'],
+    avatarUrl: 'https://picsum.photos/seed/liam/200/200'
   }
 ];
