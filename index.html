@@ -7,6 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script>
+      // POLYFILL: This prevents "process is not defined" errors on Vercel
+      window.process = { env: {} };
+      
       tailwind.config = {
         theme: {
           extend: {
@@ -27,7 +30,7 @@
         }
       }
     </script>
-<script type="importmap">
+  <script type="importmap">
 {
   "imports": {
     "react": "https://aistudiocdn.com/react@^19.2.0",

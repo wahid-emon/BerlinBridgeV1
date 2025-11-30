@@ -7,9 +7,11 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      // Allows usage of process.env.API_KEY in client-side code
-      // If env.API_KEY is undefined, it falls back to an empty string to prevent crashes
-      'process.env.API_KEY': JSON.stringify(env.API_KEY || '')
+      // 1. Explicitly replace the specific API key string
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || ''),
+      // 2. Define process.env as an empty object for any other access
+      // This prevents "Uncaught ReferenceError: process is not defined"
+      'process.env': {}
     }
   };
 });
