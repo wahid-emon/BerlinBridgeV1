@@ -2,6 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import { UserProfile, MeetingSpot } from "../types";
 
 // Declare process for TypeScript to avoid linter errors in browser context
+// The actual replacement happens at build time by Vite
 declare var process: {
   env: {
     API_KEY: string;
@@ -63,7 +64,7 @@ export const getMeetingSuggestions = async (
         if (chunk.maps) {
           spots.push({
             title: chunk.maps.title || "Suggested Location",
-            address: "Address available in map",
+            address: "View map for details",
             description: "A recommended spot based on your location preferences.",
             url: chunk.maps.uri || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(chunk.maps.title || '')}`
           });
