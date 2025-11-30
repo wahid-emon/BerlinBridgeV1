@@ -8,8 +8,19 @@ declare var process: {
   };
 };
 
-// Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Initialize Gemini Client safely
+const apiKey = process.env.API_KEY;
+let ai: GoogleGenAI | null = null;
+
+if (apiKey) {
+  try {
+    ai = new GoogleGenAI({ apiKey: apiKey });
+  } catch (e) {
+    console.error("Failed to initialize Gemini Client", e);
+  }
+} else {
+  console.warn("API_KEY is missing. AI features will not work.");
+}
 
 // Suggest public meeting spots using Google Maps Grounding
 export const getMeetingSuggestions = async (
@@ -17,6 +28,13 @@ export const getMeetingSuggestions = async (
   user1: UserProfile,
   user2: UserProfile
 ): Promise<MeetingSpot[]> => {
+  if (!ai) {
+    return [{
+      title: "API Key Missing",
+      description: "Please configure your API_KEY in Vercel settings to see AI suggestions.",
+    }];
+  }
+
   try {
     const prompt = `
       Suggest 3 specific, safe, and quiet public places (cafes, parks, or community centers) in the Berlin district of ${district} 
@@ -80,6 +98,8 @@ export const getConversationStarters = async (
   user1: UserProfile,
   user2: UserProfile
 ): Promise<string[]> => {
+  if (!ai) return ["Please set your API Key to generate icebreakers."];
+
   try {
     const prompt = `
       Generate 5 warm, friendly, and respectful conversation starters for a meeting between:
